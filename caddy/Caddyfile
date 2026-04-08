@@ -1,0 +1,37 @@
+{
+  email {$ACME_EMAIL}
+
+  # Optional DNS-01 issuer config injected via CADDY_TLS_ISSUER_CONFIG.
+  {$CADDY_TLS_ISSUER_CONFIG}
+}
+
+(header_common) {
+  header {
+    Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options "nosniff"
+    X-Frame-Options "SAMEORIGIN"
+    Referrer-Policy "strict-origin-when-cross-origin"
+  }
+}
+
+photos.example.com {
+  import header_common
+  reverse_proxy immich-server:2283 {
+    header_up Host {host}
+  }
+}
+
+cloud.example.com {
+  import header_common
+  reverse_proxy opencloud:9200
+}
+
+home.example.com {
+  import header_common
+
+  basic_auth {
+    admin <HASHED_PASSWORD>
+  }
+
+  reverse_proxy dashy:8080
+}

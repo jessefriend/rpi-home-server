@@ -1,0 +1,8 @@
+# Temporary and cache data that is safe to skip in backups.
+**/cache/**
+**/Cache/**
+**/tmp/**
+**/Tmp/**
+**/thumbs/**
+**/.Trash-*/**
+**/lost+found/**

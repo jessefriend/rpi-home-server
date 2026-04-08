@@ -1,0 +1,12 @@
+.env
+.env.local
+*.log
+.DS_Store
+
+data/
+tmp/
+backups/
+takeout/
+
+srv/
+appdata/

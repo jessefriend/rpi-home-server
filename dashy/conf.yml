@@ -1,0 +1,96 @@
+appConfig:
+  theme: nord
+  layout: auto
+  iconSize: medium
+  language: en
+  statusCheck: true
+  statusCheckInterval: 60
+  openingMethod: newtab
+  defaultOpeningMethod: newtab
+  preventWriteToDisk: true
+  disableConfiguration: true
+  hideComponents:
+    hideFooter: false
+    hideNav: false
+    hideSearch: false
+    hideSettings: true
+  auth:
+    enableGuestAccess: true
+
+pageInfo:
+  title: Pi Home Server
+  description: Private home server dashboard over Tailscale
+  navLinks:
+    - title: GitHub
+      path: https://github.com/YOUR-USER/pi-home-server-public
+    - title: Tailscale Admin
+      path: https://login.tailscale.com/admin/machines
+
+sections:
+  - name: Core Services
+    icon: fas fa-server
+    displayData:
+      sortBy: default
+      rows: 2
+      cols: 2
+      collapsed: false
+    items:
+      - title: Immich
+        description: Photo backup and gallery
+        icon: fas fa-images
+        url: https://photos.example.com
+        target: newtab
+        statusCheck: true
+        statusCheckUrl: https://photos.example.com/api/server/ping
+
+      - title: OpenCloud
+        description: File storage
+        icon: fas fa-cloud
+        url: https://cloud.example.com
+        target: newtab
+        statusCheck: true
+        statusCheckUrl: https://cloud.example.com/
+
+      - title: Dashboard
+        description: This homepage
+        icon: fas fa-house
+        url: https://home.example.com
+        target: newtab
+        statusCheck: false
+
+  - name: Infrastructure
+    icon: fas fa-network-wired
+    displayData:
+      sortBy: default
+      rows: 2
+      cols: 2
+      collapsed: false
+    items:
+      - title: Tailscale
+        description: Tailnet admin
+        icon: fas fa-lock
+        url: https://login.tailscale.com/admin/machines
+        target: newtab
+        statusCheck: false
+
+  - name: Operations
+    icon: fas fa-screwdriver-wrench
+    displayData:
+      sortBy: default
+      rows: 2
+      cols: 2
+      collapsed: false
+    items:
+      - title: Repo
+        description: Deployment and rebuild source of truth
+        icon: fab fa-git-alt
+        url: https://github.com/YOUR-USER/pi-home-server-public
+        target: newtab
+        statusCheck: false
+
+      - title: Pi SSH
+        description: Connect to homeserver from terminal
+        icon: fas fa-terminal
+        url: ssh://user@homeserver
+        target: newtab
+        statusCheck: false
